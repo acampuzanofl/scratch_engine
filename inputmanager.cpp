@@ -1,8 +1,8 @@
 #include <SFML/Graphics.hpp>
 
-#include "input.h"
+#include "inputmanager.h"
 
-void Input::Update()
+void InputManager::Update()
 {
     lastFrameKeys = thisFrameKeys;
     thisFrameKeys = 0;
@@ -14,21 +14,21 @@ void Input::Update()
     //printf("last: %x this: %x\n", lastFrameKeys, thisFrameKeys);
 }
 
-bool Input::IsKeyPressed(Key keycode)
+bool InputManager::IsKeyPressed(Key keycode)
 {
     return (thisFrameKeys & keycode) != 0;
 }
 
-bool Input::IsKeyDown(Key keycode)
+bool InputManager::IsKeyDown(Key keycode)
 {
-    bool lastFrame = (lastFrameKeys & keycode != 0);
-    bool thisFrame = (thisFrameKeys & keycode != 0);
+    bool lastFrame = (lastFrameKeys & keycode) != 0;
+    bool thisFrame = (thisFrameKeys & keycode) != 0;
     return thisFrame && !lastFrame;
 }
 
-bool Input::IsKeyUp(Key keycode)
+bool InputManager::IsKeyUp(Key keycode)
 {
-    bool lastFrame = (lastFrameKeys & keycode != 0);
-    bool thisFrame = (thisFrameKeys & keycode != 0);
+    bool lastFrame = (lastFrameKeys & keycode) != 0;
+    bool thisFrame = (thisFrameKeys & keycode) != 0;
     return !thisFrame && lastFrame;
 }

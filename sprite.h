@@ -52,12 +52,13 @@ class Sprite : public Transform
 
         void Draw(GameEngine* game);
 
-        void LoadAnim(AnimState state, const std::vector<SpriteMap>& spriteMap);
+        void LoadAnim(AnimState state, const std::vector<SpriteMap>& spriteMap, float frameTime);
         void LoadSheet(const char* path);
         std::vector<SpriteMap> LoadMap(const char* path);
 
     private:
         void SetSpriteRect(const FrameData* frameData);
+        void SetSpritePos(const Coordinates pos);
 
         sf::Sprite sprite;
         sf::Texture spriteSheet;

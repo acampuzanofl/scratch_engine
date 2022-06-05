@@ -4,7 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 
-#include "input.h"
+#include "inputmanager.h"
 
 class GameState;
 
@@ -13,7 +13,7 @@ class GameEngine
 public:
 	// handle to application window
 	sf::RenderWindow* pApplicationWindow;
-	Input input;
+	InputManager inputManager;
 
 	void Init();
 	void Cleanup();

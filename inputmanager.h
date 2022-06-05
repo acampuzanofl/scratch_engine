@@ -1,7 +1,7 @@
-#ifndef INPUT_H
-#define INPUT_H
+#ifndef INPUTMANAGER_H
+#define INPUTMANAGER_H
 
-class Input
+class InputManager
 {
     public:
 

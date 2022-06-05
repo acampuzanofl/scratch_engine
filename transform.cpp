@@ -1,14 +1,23 @@
 #include "transform.h"
 
-Coordinates Transform::getPosition()
+
+Transform::Transform()
 {
-    position.x = x;
-    position.y = y;
+
+}
+
+Transform::~Transform()
+{
+
+}
+
+Coordinates Transform::GetPosition()
+{
     return position;
 }
 
-void Transform::updatePosition(Coordinates position)
+void Transform::UpdatePosition(Coordinates position)
 {
-    x = position.x;
-    y = position.y;
+    this->position.x = position.x;
+    this->position.y = position.y;
 }

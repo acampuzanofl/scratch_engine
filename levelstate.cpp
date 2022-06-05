@@ -47,10 +47,8 @@ void LevelState::HandleEvents(GameEngine *game)
         }
     }
 
-    // handle keyboard events
-    if(game->input.IsKeyPressed(Input::Key::Right)){
-        printf("right\n");
-    }
+    // handle characters events
+    player.HandleEvents(game);
 }
 
 void LevelState::Update(GameEngine *game)

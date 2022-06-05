@@ -10,9 +10,11 @@ class Character : public Sprite
         ~Character(){};
 
         void Init(GameEngine* game);
+        void HandleEvents(GameEngine* game);
         void Update(GameEngine* game);
         
     private:
+    Coordinates position;
 };
 
 #endif

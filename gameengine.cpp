@@ -91,5 +91,5 @@ float GameEngine::GetDeltaTime()
 
 void GameEngine::PollKey()
 {
-    input.Update();
+    inputManager.Update();
 }

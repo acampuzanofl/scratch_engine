@@ -12,20 +12,17 @@
 class Entity
 {
     public:
-        float x,y;
-        
         Entity(){};
         ~Entity(){};
 
         virtual void Init(GameEngine* game) = 0;
+        virtual void HandleEvents(GameEngine* game) = 0;
         virtual void Update(GameEngine* game) = 0;
         virtual void Draw(GameEngine* game) = 0;
 
     private:
         EntityType type;
-        uint16_t health;
-        sf::Sprite entitySprite;
-        sf::Texture entityTexture;
+        uint8_t Exist;
 };
 
 #endif //ENTITIES_H

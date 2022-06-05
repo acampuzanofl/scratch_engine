@@ -12,11 +12,11 @@ struct Coordinates
 class Transform : public Entity
 {
     public:
-        Transform(){};
-        ~Transform(){};
+        Transform();
+        ~Transform();
 
-        Coordinates getPosition();
-        void updatePosition(Coordinates position);
+        Coordinates GetPosition();
+        void UpdatePosition(Coordinates position);
 
     private:
         Coordinates position;
