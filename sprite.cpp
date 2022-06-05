@@ -44,12 +44,13 @@ void Sprite::LoadSheet(const char* path)
     sprite.setTexture(spriteSheet);
 }
 
-void Sprite::LoadAnim(AnimState state, std::vector<SpriteMap>& spriteMap)
+void Sprite::LoadAnim(AnimState state, const std::vector<SpriteMap>& spriteMap)
 {
     Animation anim;
 
     for(auto frame : spriteMap){
-        anim.AddFrame(frame.id, frame.x, frame.y, frame.width, frame.height, .1);
+        if(frame.id == 0){continue;}
+        anim.AddFrame(frame.id, frame.x, frame.y, frame.width, frame.height, 1.f/15.f);
     }
 
     animations[state] = anim;
@@ -62,8 +63,19 @@ void Sprite::SetSpriteRect(const FrameData* frameData)
 
 void Sprite::Draw(GameEngine* game)
 {
-    auto currentFrame = animations[AnimState::Idle].GetCurrentFrame();
+    auto currentFrame = animations[GetAnimState()].GetCurrentFrame();
+    //printf("id: %s size: %d\n", &currentFrame->id, animations[GetAnimState()].frames.size());
     SetSpriteRect(currentFrame);
 
     game->pApplicationWindow->draw(sprite);
+}
+
+AnimState Sprite::GetAnimState()
+{
+    return animationState;
+}
+
+void Sprite::SetAnimState(AnimState state)
+{
+    animationState = state;
 }

@@ -4,6 +4,8 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 
+#include "input.h"
+
 class GameState;
 
 class GameEngine
@@ -11,6 +13,7 @@ class GameEngine
 public:
 	// handle to application window
 	sf::RenderWindow* pApplicationWindow;
+	Input input;
 
 	void Init();
 	void Cleanup();
@@ -27,6 +30,8 @@ public:
 
 	void CalculateDeltaTime();
 	float GetDeltaTime();
+
+	void PollKey();
 
 	GameEngine();
 	~GameEngine();

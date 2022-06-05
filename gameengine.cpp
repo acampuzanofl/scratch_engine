@@ -88,3 +88,8 @@ float GameEngine::GetDeltaTime()
 {
     return deltaTime;
 }
+
+void GameEngine::PollKey()
+{
+    input.Update();
+}

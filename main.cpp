@@ -14,6 +14,7 @@ int main(int argc, char const *argv[])
 	// main loop
 	while ( game.Running() )
 	{
+		game.PollKey();
 		game.HandleEvents();
 		game.Update();
 		game.Draw();

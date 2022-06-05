@@ -32,21 +32,27 @@ struct SpriteMap
 
 };
 
+enum AnimState
+{
+    None,
+    Idle,
+    Walk
+};
+
 class Sprite : public Transform
 {
     public:
-    
         std::map<AnimState, Animation> animations;
-        
+
         Sprite(){};
         ~Sprite(){};
 
-        AnimState GetState();
-        void SetState();
+        AnimState GetAnimState();
+        void SetAnimState(AnimState state);
 
         void Draw(GameEngine* game);
 
-        void LoadAnim(AnimState state, std::vector<SpriteMap>& spriteMap);
+        void LoadAnim(AnimState state, const std::vector<SpriteMap>& spriteMap);
         void LoadSheet(const char* path);
         std::vector<SpriteMap> LoadMap(const char* path);
 
@@ -55,7 +61,7 @@ class Sprite : public Transform
 
         sf::Sprite sprite;
         sf::Texture spriteSheet;
-
+        AnimState animationState;
 };
 
 #endif

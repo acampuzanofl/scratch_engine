@@ -14,16 +14,12 @@ struct FrameData
     float displayTimeSeconds; // How long to display the frame.
 };
 
-enum AnimState
-{
-    None,
-    Idle,
-    Walk
-};
-
 class Animation
 {
     public:
+            // stores all frames of animation
+        std::vector<FrameData> frames;
+        
         Animation();
 
         void AddFrame(int textureID, int x, int y, int width, int height, float frameTime);
@@ -37,8 +33,7 @@ class Animation
     private:
         void IncrementFrame();
 
-        // stores all frames of animation
-        std::vector<FrameData> frames;
+
 
         // current frame
         int currentFrameIndex;

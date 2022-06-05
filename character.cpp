@@ -2,10 +2,16 @@
 
 void Character::Init(GameEngine* game)
 {
-    printf("character init\n");
+    LoadSheet("assets/WagnerSheet/Wagner.sheet");
+
+    LoadAnim(AnimState::Idle, LoadMap("assets/WagnerIdleAnim/WagnerIdle.map"));
+    LoadAnim(AnimState::Walk, LoadMap("assets/WagnerWalkAnim/WagnerWalk.map"));
+
+    SetAnimState(AnimState::Idle);
 }
 
 void Character::Update(GameEngine* game)
 {
-    animations[AnimState::Idle].UpdateFrame(game->GetDeltaTime());
+    animations[GetAnimState()].UpdateFrame(game->GetDeltaTime());
+    //animations[AnimState::Idle].UpdateFrame(game->GetDeltaTime());
 }

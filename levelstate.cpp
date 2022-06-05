@@ -19,10 +19,6 @@ void LevelState::Init()
     backgroundSprite.setScale(targetSize.x / backgroundSprite.getLocalBounds().width, targetSize.y / backgroundSprite.getLocalBounds().height);
 
     // load character
-    std::vector<SpriteMap> spriteMaps = player.LoadMap("assets/WagnerIdleAnim/WagnerIdle.map");
-    player.LoadSheet("assets/WagnerIdleAnim/WagnerIdle.sheet");
-    player.LoadAnim(AnimState::Idle, spriteMaps);
-
     player.Init(nullptr);
 }
 
@@ -49,6 +45,11 @@ void LevelState::HandleEvents(GameEngine *game)
         case sf::Event::Closed:
             game->Quit();
         }
+    }
+
+    // handle keyboard events
+    if(game->input.IsKeyPressed(Input::Key::Right)){
+        printf("right\n");
     }
 }
 
